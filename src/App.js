@@ -11,11 +11,13 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    axios.get(`${process.env.TRANSACTIONS_API}/transactions`).then(res => {
-      this.setState({
-        transactionList: res.data
+    axios
+      .get(`${process.env.REACT_APP_TRANSACTIONS_API}/transactions`)
+      .then(res => {
+        this.setState({
+          transactionList: res.data
+        });
       });
-    });
   }
 
   render() {
