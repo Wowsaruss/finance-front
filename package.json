@@ -4,12 +4,11 @@
   "private": true,
   "dependencies": {
     "@wowsaruss/ask": "^1.1.5",
-    "axios": "^0.18.0",
     "dotenv": "^7.0.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-scripts": "2.1.8",
-    "victory": "^32.2.0"
+    "victory": "^32.3.7"
   },
   "scripts": {
     "start": "react-scripts start",
