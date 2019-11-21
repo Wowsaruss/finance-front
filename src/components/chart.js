@@ -5,24 +5,36 @@ class Chart extends Component {
   constructor() {
     super();
     this.state = {
-      transactionList: {}
+      transactionList: []
     };
   }
 
-  componentDidMount() {
-    ask(
-      `${process.env.REACT_APP_TRANSACTIONS_API}/api/filter?type=Auto&monthly=false&spend=true`
-    )
-      .then(res => {
-        console.log(res);
-      })
-      .catch(e => {
-        console.log(e);
+  async componentDidMount() {
+    try {
+      const res = await ask(
+        `${process.env.REACT_APP_TRANSACTIONS_API}/api/filter?type=Auto&monthly=true&spend=true`
+      );
+      this.setState({
+        transactionList: res
       });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   render() {
-    return <div>Hello World</div>;
+    console.log(this.state.transactionList);
+    const items = this.state.transactionList.map((t, i) => {
+      return (
+        <div key={i}>
+          <p>{t.description}</p>
+          <p>{t.amount}</p>
+          <p>{t.type}</p>
+          <p>{t.date}</p>
+        </div>
+      );
+    });
+    return <div>{items}</div>;
   }
 }
 
