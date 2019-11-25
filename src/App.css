@@ -1,0 +1,14 @@
+body {
+  background-color: white;
+  margin: 20px;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+select:focus {
+  outline: none;
+}
+select:focus {
+  outline: none;
+}
